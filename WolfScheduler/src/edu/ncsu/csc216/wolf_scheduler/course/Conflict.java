@@ -5,6 +5,8 @@ package edu.ncsu.csc216.wolf_scheduler.course;
 
 /**
  * Interface to check overlap/conflict between activities.
+ * 
+ * @author Anoushka Piduru
  */
 public interface Conflict {
 

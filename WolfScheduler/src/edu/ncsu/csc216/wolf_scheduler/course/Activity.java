@@ -6,7 +6,7 @@ package edu.ncsu.csc216.wolf_scheduler.course;
  * 
  * @author Anoushka Piduru
  */
-public abstract class Activity {
+public abstract class Activity implements Conflict {
 
 	/** Course's max ending time (hours). */
 	private static final int UPPER_HOUR = 24;
@@ -240,4 +240,19 @@ public abstract class Activity {
 	 * @return true if activity is a duplicate, false if not.
 	 */
 	public abstract boolean isDuplicate(Activity activity);
+
+	/**
+	 * Implements checkConflict functionality in Activity. Compares the current
+	 * instance with possibleConflictingActivity to find any conflict in their days
+	 * and times. If there is no conflict, the code following checkConflict will be
+	 * executed. The method is overridden in the Activity class to determine if the
+	 * times of two activities overlap.
+	 * 
+	 * @throws ConflictException if a conflict is found.
+	 */
+	@Override
+	public void checkConflict(Activity possibleConflictingActivity) throws ConflictException {
+		// TODO Auto-generated method stub
+
+	}
 }
