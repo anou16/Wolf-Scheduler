@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests the ConflictException class.
+ * 
+ * @author Anoushka Piduru
  */
 class ConflictExceptionTest {
 
