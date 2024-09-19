@@ -252,7 +252,19 @@ public abstract class Activity implements Conflict {
 	 */
 	@Override
 	public void checkConflict(Activity possibleConflictingActivity) throws ConflictException {
-		// TODO Auto-generated method stub
+		int conflictStart = possibleConflictingActivity.getStartTime();
+		int conflictEnd = possibleConflictingActivity.getEndTime();
+		String conflictDays = possibleConflictingActivity.getMeetingDays();
 
+		for (int i = 0; i < conflictDays.length(); i++) {
+			if (this.meetingDays.indexOf(conflictDays.charAt(i)) != -1) {
+				if (this.startTime < conflictEnd && this.endTime > conflictStart) {
+					throw new ConflictException("Schedule conflict.");
+				}
+				if (this.endTime == conflictStart || this.startTime == conflictEnd) {
+					throw new ConflictException("Schedule conflict.");
+				}
+			}
+		}
 	}
 }
